@@ -4,7 +4,7 @@
 
 NBN-Agentic Podcast aims to create a system inspired by notebookLM. It features a modular architecture designed to handle many input types, implements a (light) typed agentic workflow system for secure inter-agent communication, and incorporates a text-to-speech component to produce the final podcast output.
 
-This repository contains the codebase accompanying a detailed blog post, which can be found [here](https://choosealicense.com/licenses/mit/). The blog provides in-depth insights into the project's development and implementation.
+This repository contains the codebase accompanying a detailed blog post, which can be found [here](https://neuron-by-neuron.ghost.io/trying-to-recreate-notebooklm-and-an-agentic-workflow/). The blog provides in-depth insights into the project's development and implementation.
 
 ## Table of Contents
 
