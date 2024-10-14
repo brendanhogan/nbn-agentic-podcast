@@ -81,16 +81,45 @@ Options:
 - `texttospeech.py`: Handles the conversion of text to speech for the final podcast
 - `utils.py`: Contains utility functions used throughout the project
 
-## Type System
+## Type System (`infotypes.py`)
+The typing system is defined in `infotypes.py` and consists of several classes that represent different types of information used throughout the podcast generation process. These types serve as a contract between agents, ensuring that the output of one agent can be safely used as input for another.
 
-The project implements a custom type system (`infotypes.py`) to ensure compatibility between agents. Key types include:
+### Core Types
 
-- `SourceText`: Original source text to be processed
-- `Summary`: A condensed version of the source text
-- `Transcript`: A written record of spoken content
-- `Acts`: Represents different acts or sections of the podcast
+1. **SourceText**
+   - Description: Original source text to be processed
+   - Always serves as the initial input to the workflow
 
-The type system allows for type checking between connected agents in the workflow, ensuring data consistency and reducing errors.
+2. **Summary**
+   - Description: A condensed version of the source text
+   - Base class for more specific summary types
+
+3. **Narrative** (subclass of Summary)
+   - Description: A focused, story-driven summary of the source text
+
+4. **Acts** (subclass of Summary)
+   - Description: A summary divided into distinct narrative acts
+
+5. **IndepthSummary** (subclass of Summary)
+   - Description: A detailed, comprehensive summary of the source text
+
+6. **Transcript**
+   - Description: A written record of spoken content
+   - The final output of the workflow is always a Transcript or its subclass
+
+7. **PersonalizedTranscript** (subclass of Transcript)
+   - Description: A transcript tailored to specific preferences or requirements
+
+8. **Bool**
+   - Description: A boolean value
+   - Used for conditional logic in the workflow
+
+### Type Usage Philosophy
+
+1. **Input Consistency**: `SourceText` is always the initial input to the workflow, ensuring all agents have access to the original content if needed.
+2. **Output Consistency**: A `Transcript` (or its subclass) is always the final output, providing a standardized format for the generated podcast content.
+3. **Intermediate Types**: Various `Summary` subclasses allow for different levels of content abstraction and focus throughout the workflow.
+4. **Type Safety**: By using these defined types, we ensure that agents receive and produce data in expected formats, reducing errors and improving interoperability.
 
 ## Agent Configuration
 
@@ -120,8 +149,6 @@ The `AgentConfig` class implements a type checker to ensure that the workflow is
      - It prepares the input data for the agent based on the outputs from previous steps.
      - It executes the agent's `process()` method with the prepared inputs.
      - The outputs are stored and made available for subsequent steps.
-
-Here's a simplified example of how these methods might be implemented:
 
 
 ## Customization
