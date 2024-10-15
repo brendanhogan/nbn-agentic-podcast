@@ -25,7 +25,7 @@ To set up the NBN-Agentic Podcast project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/nbn-agentic-podcast.git
+   git clone https://github.com/brendanhogan/nbn-agentic-podcast.git
    cd nbn-agentic-podcast
    ```
 
